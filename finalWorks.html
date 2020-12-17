@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web页面制作</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #all {
+            box-sizing: border-box;
+        }
+
+        .header {
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .clear:after {
+            content: '';
+            display: block;
+            height: 0;
+            /* clear: both; */
+        }
+
+        body {
+            background-color: rgb(250, 242, 213);
+        }
+
+        .header {
+            width: 100%;
+            height: 100px;
+            max-width: 1519px;
+            margin: 0 auto;
+        }
+
+        .zhong {
+            float: left;
+            width: 310px;
+            height: 40px;
+            margin-top: 30px;
+            margin-left: 20px;
+        }
+
+        .zhong .zone {
+            height: 40px;
+            margin-left: 40px;
+            float: left;
+            text-align: center;
+            line-height: 40px;
+        }
+
+        .zhong .zone a {
+            font-size: 18px;
+            font-family: Microsoft YaHei;
+            font-weight: 400;
+            color: rgba(5, 5, 5, 1);
+        }
+
+        .zhong .zone a:hover {
+            border-width: 0 0 1.5px 0;
+            border-color: rgba(0, 164, 255, 1);
+            border-style: solid;
+            color: rgba(0, 164, 255, 1);
+            padding: 0 0 7px;
+        }
+
+        .form0 {
+            float: left;
+            width: 390px;
+            height: 40px;
+            margin-left: 20px;
+            margin-top: 35px;
+        }
+
+        .left0 {
+            float: left;
+            height: 20.5px;
+            font-size: 14px;
+            color: rgba(191, 191, 191, 1);
+            line-height: 42px;
+            padding: 6.5px 136px 6px 9.5px;
+            border: 1px solid rgba(0, 164, 255, 1);
+        }
+
+        .right0 {
+            float: left;
+            width: 35px;
+            height: 35px;
+            border: 1px solid rgba(0, 164, 255, 1);
+            background: rgba(0, 164, 255, 1) url(working/sousuo.png) no-repeat center;
+            background-size: 9.5px;
+        }
+
+        .form1 {
+            float: left;
+            height: 40px;
+            margin-left: 10px;
+            margin-top: 40px;
+        }
+
+        #register {
+            float: left;
+            height: 30px;
+            margin-top: 40px;
+            margin-left: 10px;
+            font-size: 15px;
+            font-weight: 400;
+            color: rgb(101, 101, 101);
+        }
+
+        .nav {
+            position: absolute;
+            width: 1200px;
+            height: 50px;
+            margin: 0 160px;
+            background-color: rgb(255, 210, 200);
+            box-shadow: 0px 2px 3px 0px rgba(118, 118, 118, 0.2);
+            cursor: pointer;
+        }
+
+        .nav>ul>li {
+            position: relative;
+            width: 170px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            margin-left: 25px;
+            float: left;
+            font-size: 16px;
+        }
+
+        .nav li a {
+            color: #050505;
+            font-weight: bold;
+        }
+
+        .nav li a:hover {
+            cursor: pointer;
+            color: #00A4FF;
+        }
+
+        .nav>ul>li ul {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 50px;
+            font-size: 14px;
+        }
+
+        .nav ul li ul li {
+            background: rgb(255, 210, 200, 0.7)
+        }
+
+        .nav>ul>li:hover ul {
+            display: block;
+            width: 170px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            float: left;
+        }
+
+        .nav>li:hover>a {
+            color: #00A4FF;
+        }
+
+        .pra {
+            height: 90px;
+            width: 100%;
+            margin-top: 30px;
+            line-height: 100px;
+            text-align: center;
+            font-family: '华文楷体';
+        }
+
+        .banner0 {
+            height: 320px;
+            width: 1200px;
+            margin: 9px auto;
+            position: relative;
+        }
+
+        .banner0 li {
+            height: 320px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* banner图用背景图片引入 */
+        /*第一张被覆盖，后面的呈现*/
+
+        /* .banner-one {
+            background: url(working/banner3.jpg) no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .banner-two {
+            background: url(working/banner2.jpg) no-repeat;
+            background-size: 100% 100%;
+        } */
+
+        .prev,
+        .next {
+            width: 70px;
+            height: 70px;
+            position: absolute;
+            top: 140px;
+            left: 5%;
+        }
+
+        .next {
+            left: auto;
+            right: 5%;
+        }
+
+        #cont {
+            width: 1200px;
+            margin: 0 auto;
+            /*主体居中*/
+        }
+
+        #cont .head1 {
+            width: 1200px;
+            height: 60px;
+            margin: 0 auto;
+            box-shadow: 0px 2px 3px 0px rgba(118, 118, 118, 0.2);
+        }
+
+        #cont .head1 .type {
+            width: 150px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            border-right: 3px #bfbfbf solid;
+            margin-top: 25px;
+            float: left;
+            font-size: 25px;
+            font-family: 华文楷体;
+            color: #050505;
+        }
+
+        #cont .head1 .expand {
+            width: 48px;
+            height: 13px;
+            line-height: 13px;
+            text-align: center;
+            margin: 0 auto;
+            font-size: 15px;
+            font-family: 华文楷体;
+            font-weight: 400;
+            float: right;
+            margin-right: 20px;
+            margin-top: 28px;
+        }
+
+        #cont .head1 .expand a {
+            color: rgba(165, 165, 165, 1);
+        }
+
+        #cont #hang {
+            width: 1200px;
+            height: 270px;
+            margin: 0 auto;
+        }
+
+        #cont .block {
+            float: left;
+            width: 228px;
+            height: 275px;
+            margin-bottom: 15px;
+            margin-left: 15px;
+        }
+
+        #cont .block:hover {
+            cursor: pointer;
+            box-shadow: 0px 2px 5px 0px rgba(118, 118, 118, 0.5);
+        }
+
+        #cont .block .imgs {
+            width: 100%;
+            height: 245px;
+        }
+
+        #cont .block .word1 {
+            width: 185px;
+            height: 34px;
+            line-height: 34px;
+            /*margin: 0 auto;*/
+            font-size: 23px;
+            font-family: 华文楷体;
+            font-weight: 400;
+            color: rgba(5, 5, 5, 1);
+            line-height: 20px;
+            float: left;
+            margin-top: 3px;
+        }
+
+        #cont .block .word1 a:hover {
+            border-width: 0 0 1.5px 0;
+            border-color: rgba(165, 165, 165, 1);
+            border-style: solid;
+        }
+
+        #final {
+            height: 190px;
+            background-color: rgb(192, 192, 192, 0.7);
+            margin-top: 16px;
+        }
+
+        #final img {
+            width: 150px;
+            height: 150px;
+            margin-top: 30px;
+            margin-left: 30px;
+            float: left;
+        }
+
+        /* 添加滚动警示信息 */
+        .con {
+            float: right;
+            width: 700px;
+            height: 80px;
+            border: none;
+            margin-right: 60px;
+            overflow: hidden;
+        }
+
+        .title {
+            color: red;
+            width: 600px;
+        }
+
+        /* 结束 */
+
+        #final .first {
+            width: 700px;
+            float: right;
+            text-align: center;
+            font-size: 14px;
+            margin-right: 60px;
+        }
+
+        #final .second {
+            width: 700px;
+            float: right;
+            text-align: center;
+            font-size: 14px;
+            margin-right: 60px;
+        }
+
+        #final .list {
+            width: 200px;
+            height: 100px;
+            float: left;
+            margin-top: 25px;
+            margin-left: 56px;
+        }
+
+        .list li {
+            height: 40px;
+            line-height: 40px;
+        }
+
+        .list a {
+            cursor: pointer;
+            color: rgb(0, 164, 255);
+        }
+
+        #goUp {
+            float: right;
+            height: 30px;
+            margin-top: -30px;
+            margin-right: 60px;
+            background-color: lightpink;
+        }
+
+        #goUp:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 美食城页面 -->
+    <div id="all" style="position: relative;">
+        <div class="header clear">
+            <img src="working/logoa.png" alt="美食logo" style="height:100px; widows:100px;float:left;margin-left:100px;">
+            <ul class="zhong clear">
+                <li class="zone" id="firstPage"><a href="#">首页</a></li>
+                <li class="zone"><a href="#">饮食历史</a></li>
+                <li class="zone"><a href="#">饮食文化</a></li>
+            </ul>
+            <form class="form0 clear">
+                <input type="text" placeholder="输入查询内容" class="left0" />
+                <input type="button" class="right0" />
+            </form>
+            <form class="form1" action="#" method="post">
+                账户名:<input type="text" name="账户名"> 密码:
+                <input type="password" name="密码">
+                <input type="submit" value="快速登录" name="sub">
+            </form>
+            <input type="button" name="regis" value="注册" id="register"></input>
+        </div>
+
+        <div class="nav clear">
+            <ul class="clear">
+                <li class="clear"><a href="#">经典菜系</a>
+                    <ul>
+                        <li><a href="#">川菜</a></li>
+                        <li><a href="#">鲁菜</a></li>
+                        <li><a href="#">粤菜</a></li>
+                        <li><a href="#">更多</a></li>
+                    </ul>
+                </li>
+                <li class="clear"><a href="#">地方小吃</a>
+                    <ul>
+                        <li><a href="#">河北小吃</a></li>
+                        <li><a href="#">辽宁小吃</a></li>
+                        <li><a href="#">四川小吃</a></li>
+                        <li><a href="#">更多</a></li>
+                    </ul>
+                </li>
+                <li class="clear"><a href="#">食材简介</a>
+                    <ul>
+                        <li><a href="#">蔬菜类</a></li>
+                        <li><a href="#">生鲜类</a></li>
+                        <li><a href="#">水果类</a></li>
+                        <li><a href="#">更多</a></li>
+                    </ul>
+                </li>
+                <li class="clear"><a href="#">菜谱大全</a>
+                    <ul>
+                        <li><a href="#">家常菜</a></li>
+                        <li><a href="#">凉菜</a></li>
+                        <li><a href="#">热菜</a></li>
+                        <li><a href="#">更多</a></li>
+                    </ul>
+                </li>
+                <li class="clear"><a href="#">饮食健康</a>
+                    <ul>
+                        <li><a href="#">饮食资讯</a></li>
+                        <li><a href="#">饮食文化</a></li>
+                        <li><a href="#">健康指南</a></li>
+                        <li><a href="#">更多</a></li>
+                    </ul>
+                </li>
+                <li class="clear"><a href="#">美食达人</a>
+                    <ul>
+                        <li><a href="#">烘培达人</a></li>
+                        <li><a href="#">养生达人</a></li>
+                        <li><a href="#">营养师</a></li>
+                        <li><a href="#">更多</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="pra">
+            <h1>千年文化传承,&nbsp;&nbsp;千年精华凝练,&nbsp;&nbsp;中华美食,&nbsp;&nbsp;中国味道。</h1>
+        </div>
+
+        <div class="banner0">
+            <ul>
+                <li class="banner-one"><img src="working/banner3.jpg" alt="" style="width: 1200px; height: 320px;"
+                        class="bannerPic"></li>
+                <li class="banner-two"><img src="working/banner2.jpg" alt=""
+                        style="width: 1200px; height: 320px; display: none;" class="bannerPic"></li>
+            </ul>
+            <a href="#"><img src="working/prev.png" alt="上一页" class="prev" /></a>
+            <a href="#"><img src="working/next.png" alt="下一页" class="next" /></a>
+        </div>
+
+        <div id="cont">
+
+            <div class="head1 clear">
+                <div class="type">北方菜品💖</div>
+                <div class="expand"><a href="#">更多</a></div>
+            </div>
+            <div id="hang" class="clear">
+                <div class="block clear" style="margin-left: 0;">
+                    <div class="imgs"><img src="working/咖喱饭.png"></div>
+                    <div class="word1"><a href="#">咖喱饭</a></div>
+                </div>
+                <div class="block clear">
+                    <div class="imgs"><img src="working/拉面.png"></div>
+                    <div class="word1"><a href="#">兰州拉面</a></div>
+                </div>
+                <div class="block clear">
+                    <div class="imgs"><img src="working/带鱼.png"></div>
+                    <div class="word1"><a href="#">红烧带鱼</a></div>
+                </div>
+                <div class="block clear">
+                    <div class="imgs"><img src="working/炸丸子.png"></div>
+                    <div class="word1"><a href="#">金黄炸丸子</a></div>
+                </div>
+                <div class="block clear">
+                    <div class="imgs"><img src="working/金秋南瓜包1.png"></div>
+                    <div class="word1"><a href="#">金秋南瓜包</a></div>
+                </div>
+            </div>
+
+            <div class="head1 clear" style="margin-top: 16px">
+                <div class="type">南方菜品🧡</div>
+                <div class="expand"><a href="#">更多</a></div>
+            </div>
+            <div id="hang" class="clear">
+                <div class="block clear" style="margin-left: 0;">
+                    <div class="imgs"><img src="working/丝娃娃.png"></div>
+                    <div class="word1"><a href="#">贵州丝娃娃</a></div>
+                </div>
+                <div class="block clear">
+                    <div class="imgs"><img src="working/酸辣粉.png"></div>
+                    <div class="word1"><a href="#">酸辣粉</a></div>
+                </div>
+                <div class="block clear">
+                    <div class="imgs"><img src="working/豆腐.png"></div>
+                    <div class="word1"><a href="#">麻婆豆腐</a></div>
+                </div>
+                <div class="block clear">
+                    <div class="imgs"><img src="working/酱香肉.png"></div>
+                    <div class="word1"><a href="#">四川酱香肉</a></div>
+                </div>
+                <div class="block clear">
+                    <div class="imgs"><img src="working/担担面.png"></div>
+                    <div class="word1"><a href="#">担担面</a></div>
+                </div>
+            </div>
+
+            <div class="head1 clear" style="margin-top: 15px">
+                <div class="type">美味甜品💜</div>
+                <div class="expand"><a href="#">更多</a></div>
+            </div>
+            <div id="hang" class="clear">
+                <div class="block clear" style="margin-left: 0;">
+                    <div class="imgs"><img src="working/脆肠面包.png"></div>
+                    <div class="word1"><a href="#">脆肠排面包</a></div>
+                </div>
+                <div class="block clear">
+                    <div class="imgs"><img src="working/驴打滚.png"></div>
+                    <div class="word1"><a href="#">老北京驴打滚</a></div>
+                </div>
+                <div class="block clear">
+                    <div class="imgs"><img src="working/水果蛋糕.png"></div>
+                    <div class="word1"><a href="#">豪华水果蛋糕</a></div>
+                </div>
+                <div class="block clear">
+                    <div class="imgs"><img src="working/巧克力蛋糕.png"></div>
+                    <div class="word1"><a href="#">精巧巧克力蛋糕</a></div>
+                </div>
+                <div class="block clear">
+                    <div class="imgs"><img src="working/吐司.png"></div>
+                    <div class="word1"><a href="#">蔓越莓吐司</a></div>
+                </div>
+            </div>
+
+            <div class="head1 clear" style="margin-top: 15px">
+                <div class="type">下午茶💛</div>
+                <div class="expand"><a href="#">更多</a></div>
+            </div>
+            <div id="hang" class="clear">
+                <div class="block clear" style="margin-left: 0;">
+                    <div class="imgs"><img src="working/青柠薄荷冰饮.png"></div>
+                    <div class="word1"><a href="#">青柠薄荷冰饮</a></div>
+                </div>
+                <div class="block clear">
+                    <div class="imgs"><img src="working/星空燕窝.png"></div>
+                    <div class="word1"><a href="#">星空燕窝</a></div>
+                </div>
+                <div class="block clear">
+                    <div class="imgs"><img src="working/奶茶.png"></div>
+                    <div class="word1"><a href="#">港式奶茶</a></div>
+                </div>
+                <div class="block clear">
+                    <div class="imgs"><img src="working/蜜桔茶.png"></div>
+                    <div class="word1"><a href="#">金桔蜂蜜茶</a></div>
+                </div>
+                <div class="block clear">
+                    <div class="imgs"><img src="working/滋补酸梅汤.png"></div>
+                    <div class="word1"><a href="#">滋补酸梅汤</a></div>
+                </div>
+            </div>
+
+            <div id="final" class="clear">
+                <img src="working/logoa.png" />
+                <ul class="list">
+                    <li><a href=" "><span class="liOver">关于我们</span></a></li>
+                    <li><a href=" "><span class="liOver">网页详情</span></a></li>
+                    <li><a href=" "><span class="liOver">问题咨询</span></a></li>
+                    <li><a href=" "><span class="liOver">意见反馈</span></a></li>
+                </ul>
+                <div class="con">
+                    <div class="title">
+                        [温馨提示]警惕不良分子窃取信息，请您保护好自己的隐私！！！<br>[温馨提示]如有特殊情况，请及时与我们联系。<br>[温馨提示]联系方式在页面最下方，感谢您的宝贵建议。</div>
+                </div>
+                <p class="first"></p>
+                <p class="second"></p>
+            </div>
+        </div>
+        <div>
+            <input type="submit" value="返回顶部" name="return" id="goUp">
+        </div>
+
+    </div>
+
+
+</body>
+<script>
+    // 点击注册按钮，显示出注册页面，提供注册服务。
+    var box = document.querySelector(".box");
+    var register = document.getElementById("register");
+    var newWindow; //新打开的窗口存到这个变量里面
+    register.onclick = function () {
+        newWindow = window.location.href = "registerPage.html";
+        console.log(newWindow); //在控制台打印输出，以供检验
+    }
+
+    // 导航目录栏悬浮
+    window.onscroll = function () {
+        var nav = document.getElementsByClassName("nav");
+        var _scroll = document.body.scrollTop || document.documentElement.scrollTop;
+        document.title = _scroll;
+        if (_scroll >= 90) {
+            nav[0].style.position = "fixed";
+            nav[0].style.top = 0;
+        } else {
+            nav[0].style.position = "absolute";
+            nav[0].style.top = "100px";
+        }
+    }
+
+    // 警示信息移动动态效果
+    var title = document.getElementsByClassName("title"); //得到集合数组，要转化为DOM节点对象
+    title[0].style.marginLeft = "0";
+    var intervalId = setInterval(function () {
+        var marginLeft = parseInt(title[0].style.marginLeft);
+        title[0].style.marginLeft = (marginLeft + 1) + "px"; // 间隔10毫秒使marginLeft加1
+        if (marginLeft == 700) {
+            title[0].style.marginLeft = "0"; //设置循环
+        }
+    }, 30)
+
+    // 向最下方信息栏添加文本信息 
+    var first = document.getElementsByClassName("first");
+    var second = document.getElementsByClassName("second");
+    first[0].innerHTML = "版权声明：本网页的图片为网上搜集而来，访问者可将本网页提供的内容用于个人学习、研究、欣赏以及其他非商业性非盈利性用途。同时遵守著作权法及其他相关法律规定，不得侵犯本网页及相关权利人的合法权益，违者必究。若本网页有不当之处，请及时通知，予以删除。";
+    second[0].innerHTML = "Copyright 2020 SHSong.ALLRightReserved ";
+
+    // 点击首页时弹出页面提示框：当前页面已经是首页。
+    var firstPage = document.getElementById("firstPage");
+    firstPage.onclick = function () {
+        alert("当前页面即为首页");
+    }
+
+    // 输入框的输入信息为空时，弹出确认框。
+    var left0 = document.getElementsByClassName("left0");
+    var right0 = document.getElementsByClassName("right0");
+    right0[0].onclick = function () {
+        if (left0[0].value == "") {
+            window.confirm("查询信息不能为空，请重新输入！");
+        }
+    }
+
+    // 点击右下角“返回页面顶端” 完成返回操作
+    var goUp = document.getElementById("goUp");
+    goUp.onclick = function () {
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+    }
+
+    // 鼠标箭头移上哪个li元素，哪个li元素的字体颜色和边框样式改变。鼠标移开时颜色恢复。
+    var liOver = document.getElementsByClassName("liOver");
+    for (var i = 0; i < liOver.length; i++) {
+        liOver[i].onmouseover = function () {
+            this.style.color = "red";
+            this.style.border = "1px solid green";
+            this.style.borderRadius = "70%";
+        }
+        liOver[i].onmouseout = function () {
+            this.style.color = "#1688ea";
+            this.style.border = "none";
+        }
+    }
+
+    // 轮播图 鼠标移上图片轮播，鼠标移下图片不变
+    var banner0 = document.getElementsByClassName("banner0");
+    var bannerPic = document.getElementsByClassName("bannerPic");
+    var temp = 0;
+    var timeId;
+    banner0[0].onmouseover = function () {
+        timeId = setInterval(function () {
+            for (var i = 0; i < bannerPic.length; i++) {
+                if (temp == i) {
+                    bannerPic[i].style.display = "block";
+                } else {
+                    bannerPic[i].style.display = "none";
+                }
+            }
+            temp++;
+            while (temp == bannerPic.length) {
+                temp = 0;
+            }
+        }, 1500);
+
+        banner0[0].onmouseout = function () {
+            clearInterval(timeId);
+        }
+    }
+
+</script>
+
+</html>
